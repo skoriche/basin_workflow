@@ -72,6 +72,10 @@ if(!requireNamespace("pbapply", quietly=TRUE))
 if(!requireNamespace("yaml", quietly=TRUE)) 
   install.packages("yaml")
 
+if(!requireNamespace("elevatr", quietly=TRUE)) {
+  install.packages("elevatr")
+}
+
 # install arrow package from source, if any conflicts/errors happen due to arrow package
 if(!requireNamespace("arrow", quietly=TRUE) || reinstall_arrow) {
   # 1
@@ -108,6 +112,7 @@ suppressPackageStartupMessages(library(arrow))
 library(pbapply)
 library(parallel)
 library(yaml)
+library(elevatr)
 
 # put all packages in a list for the use in parallel execution
 libraries_lst <- c(suppressPackageStartupMessages(library(hydrofabric)),
@@ -128,6 +133,7 @@ libraries_lst <- c(suppressPackageStartupMessages(library(hydrofabric)),
                    library(pbapply),
                    library(parallel),
                    library(yaml)
+                   library(elevatr)
                    )
 
 # to sync hydrofabric to local machine
